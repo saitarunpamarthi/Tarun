@@ -1,0 +1,210 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        table {
+            color: #333;
+            font-family: Helvetica, Arial, sans-serif;
+            width: 640px;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        td, th {
+            border: 1px solid transparent;
+            height: 30px;
+            transition: all 0.3s;
+        }
+
+        th {
+            background: #DFDFDF;
+            font-weight: bold;
+        }
+
+        td {
+            background: #FAFAFA;
+            text-align: center;
+        }
+
+        tr:nth-child(even) td {
+            background: #F1F1F1;
+        }
+
+        tr:nth-child(odd) td {
+            background: #FEFEFE;
+        }
+    </style>
+
+    <title>Pete's Pizza Delivery</title>
+    <script type="text/javascript">
+        
+        function piza() {
+            var prize = 0;
+            var topping = " ";
+            var size = " ";
+            var extras = new Array();
+            var name = document.getElementById("name").value;
+            var t1 = document.getElementById("marg");
+            var t2 = document.getElementById("four");
+            var t3 = document.getElementById("meat");
+            if (t1.checked == true) {
+                prize += 50;
+                topping = "Margherita";
+            }
+
+            else if (t2.checked == true) {
+                prize += 100;
+                topping = "Four Seasons";
+            }
+            else if (t3.checked == true) {
+                prize += 150;
+                topping = "Meat Feast";
+            }
+
+            var s1 = document.getElementById("s");
+            var s2 = document.getElementById("m");
+            var s3 = document.getElementById("l");
+            if (s1.checked == true) {
+                prize += 275;
+                size = "Small";
+            }
+
+            else if (s2.checked == true) {
+                prize += 325;
+                size = "Medium";
+            }
+            else if (s3.checked == true) {
+                prize += 415;
+                size = "large";
+            }
+
+
+            var top1 = document.getElementById("mu");
+            var top2 = document.getElementById("pe");
+            var top3 = document.getElementById("an");
+            var top4 = document.getElementById("ch");
+            if (top1.checked == true) {
+                prize += 75;
+                extras.push("Mushrooms");
+            }
+
+            if (top2.checked == true) {
+                prize += 50;
+                extras.push("Green peppers");
+            }
+            if (top3.checked == true) {
+                prize += 65;
+                extras.push("Anchovies");
+            }
+            if (top4.checked == true) {
+                prize += 20;
+                extras.push("Extra cheese");
+            }
+            display(prize,name,size,topping,extras);
+            
+
+        }
+       function display(prize, name, size, topping, extras)
+        {
+            document.getElementById("amount").innerHTML = "Total Cost is:" + prize;
+            document.getElementById("client").innerHTML = "Hello " + name;
+            document.getElementById("size").innerHTML = "Your pizza size is :" + size;
+            document.getElementById("top").innerHTML = "Toppings is :" + topping;
+            document.getElementById("extras").innerHTML = "Extras are:" + extras;
+        }
+        
+    </script>
+    <style>
+        table {
+            margin: auto;
+            padding: 1em;
+        }
+
+        td {
+            padding: 0 0.5em;
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body style="background-color:aqua">
+
+    <h1 style="text-align: center;">Pete's Pizza Delivery</h1>
+    <h2 style="text-align: center;">Online Order Form</h2>
+
+    <form method="post" action="">
+        <table>
+            <tr>
+                <td style="text-align: right;"><label for="name">*Name: </label></td>
+                <td><input type="text" name="name" id="name" required /></td>
+                <td style="text-align: right;"><label for="tel">*Tel: </label></td>
+                <td><input type="tel" name="tel" id="tel" required /></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;"><label for="addr">*Address: </label></td>
+                <td><input type="text" name="addr" id="addr" required /></td>
+                <td style="text-align: right;"><label for="mail">*Email: </label></td>
+                <td><input type="email" name="mail" id="mail" required /></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;"><label for="town">*Town/city: </label></td>
+                <td><input type="text" name="town" id="town" required /></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;"><label for="pcode">*Postcode: </label></td>
+                <td><input type="text" name="pcode" id="pcode" required /></td>
+            </tr>
+        </table>
+
+        <p style="text-align: center;">* required fields</p>
+
+        <table>
+            <tr>
+                <td>
+                    <h3>Topping</h3>
+                    <label><input type=radio name=topping id="marg" required value="marg" /> Margherita</label><br />
+                    <label><input type=radio name=topping id="four" required value="four" /> Four Seasons</label><br />
+                    <label><input type=radio name=topping id="meat" required value="meat" /> Meat Feast</label><br />
+                </td>
+                <td>
+                    <h3>Size</h3>
+                    <label><input type=radio name=base id="s" required value="s" /> Small</label><br />
+                    <label><input type=radio name=base id="m" required value="m" /> Medium</label><br />
+                    <label><input type=radio name=base id="l" required value="l" /> Large</label><br />
+                </td>
+                <td>
+                    <h3>Extras</h3>
+                    <label><input type=checkbox name=extra id="mu" value="mu" /> Mushrooms</label><br />
+                    <label><input type=checkbox name=extra id="pe" value="pe" /> Green peppers</label><br />
+                    <label><input type=checkbox name=extra id="an" value="an" /> Anchovies</label><br />
+                    <label><input type=checkbox name=extra id="ch" value="ch" /> Extra cheese</label><br />
+                </td>
+            </tr>
+        </table>
+
+        <br />
+
+        <table>
+            <tr>
+                <td style="text-align: right;"><label for="del">Preferred delivery time: </label></td>
+                <td><input type=time min="11:00" max="21:00" step="900" name="del" id="del" required /></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;"><label for="instr">Delivery instructions: </label></td>
+                <td><textarea name="instr" id="instr" maxlength=1000></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;"><br />
+                <input type="button" onclick="piza()" value="Submit order" /></td>
+            </tr>
+        </table>
+    </form>
+    <div id="client"></div>
+    <div id="top"></div>
+    <div id="size"></div>
+    <div id="extras"></div>
+    <div id="amount"></div>
+</body>
+</html>
