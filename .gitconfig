@@ -1,0 +1,22 @@
+[user]
+	email = ganeshbabum@yahoo.com
+	name = Ganesh Babu M
+[color]
+	ui = auto
+[core]
+	editor = Notepad
+[help]
+	autocorrect = 1
+
+[alias]
+	lga = log --graph --oneline --all“
+	ll = log --graph --oneline
+	abc = log --graph --oneline --all --decorate
+	mylog = log --graph --oneline --all
+[merge]
+	tool = kdiff3
+[mergetool "kdiff3"]
+	path = C:/Program Files/KDiff3/kdiff3.exe
+[alise]
+	abc = log --graph --oneline --all --decorate
+	mylog = log --graph --oneline --all
